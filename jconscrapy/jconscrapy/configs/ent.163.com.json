@@ -1,0 +1,74 @@
+{
+  "name": "ent.163.com",
+  "links": [
+    {
+      "type": "const",
+      "value": "http://ent.163.com/",
+      "links": [
+        {
+          "type": "link_extractor",
+          "value": {"allow": "http://ent.163.com/\\d+/\\d+/\\d+/[0-9a-zA-Z]+.html"},
+          "item": {
+            "type": {
+              "type": "const",
+              "value": "main"
+            },
+            "title": {
+              "type": "xpath",
+              "value": "//title/text()"
+            },
+            "content": {
+              "type": "xpath",
+              "value": "//div[@id='endText']"
+            },
+            "subtitle": {
+              "type": "xpath",
+              "value": ""
+            },
+            "crumb": {
+              "type": "xpath",
+              "value": "//div[@class='ep-crumb JS_NTES_LOG_FE']"
+            },
+            "abstraction": {
+              "type": "xpath",
+              "value": "//p[@class='ep-summary']/text()"
+            },
+            "description": {
+              "type": "xpath",
+              "value": "//meta[@name='description']/@content"
+            },
+            "author": {
+              "type": "xpath",
+              "value": "//div[@class='ep-time-soure cDGray']/a/text()"
+            },
+            "source_name": {
+              "type": "xpath",
+              "value": "//div[@class='ep-time-soure cDGray']/a/text()"
+            },
+            "source_url": {
+              "type": "xpath",
+              "value": "//div[@class='ep-time-soure cDGray']/a/@href"
+            },
+            "image_urls":{
+              "type": "xpath",
+              "value": "//p[@class='f_center']/img/@src",
+              "format":"list"
+            },
+            "pub_time": {
+              "type": "xpath_reg",
+              "value": [
+                "//div[@class='ep-time-soure cDGray']/text()",
+                "(\\d+-\\d+-\\d+ \\d\\d:\\d\\d:\\d\\d)"
+              ],
+              "format": "timestamp"
+            },
+            "other_list": {
+              "type": "xpath",
+              "value": "//div[@class='ep-keywords-main']"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

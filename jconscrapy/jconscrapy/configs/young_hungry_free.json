@@ -1,0 +1,36 @@
+{
+  "name": "yong_hungry_free",
+  "links":[
+    {
+      "type": "const",
+      "value": "http://younghungryfree.com/",
+      "links":[
+        {
+          "type": "xpath",
+          "value": "/html/body//div[@class='dropdown_2columns submenu-item'][1]//a/@href",
+          "links":[
+            {
+              "type": "xpath",
+              "value": "//a[@class='product-name']/@href",
+              "item":{
+                "name":{
+                  "type": "xpath",
+                  "value": "//title/text()"
+                },
+                "description":{
+                  "type": "xpath_n",
+                  "value": [
+                    "//section[@class='page-product-box']//p//text()",
+                    "1"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+
+    }
+  ]
+}
+
